@@ -32,7 +32,7 @@ function exists(tab, x)
   return false
 end
 
-local data = require (protocol)
+local data = require ("protocols."..protocol)
 
 function to_atoms()
   local states = data.states
