@@ -2,7 +2,13 @@
 package.path = package.path..";C:\\Users\\Bartek\\Desktop\\PRACA\\protocols\\?.lua"
 
 --nazwa protokolu do wykonania
-local protocol = "majority"
+local protocol = arg[1]
+
+if protocol == nil then
+  protocol = "protocols.lider"
+else
+  protocol = string.gsub(protocol, "[/\\]", ".")
+end
 
 Queue = {}
 function push (q, val)
@@ -33,7 +39,7 @@ function exists(tab, x)
 end
 
 --will work, if we run from command line, not IDE
-local data = require ("protocols."..protocol)
+local data = require (protocol)
 --will work if, we run from IDE (together with the change to package.path above)
 --local data = require ("protocols."..protocol)
 
