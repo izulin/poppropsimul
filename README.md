@@ -1,2 +1,2 @@
 # poppropsimul
-Population protocols efficient simulator
+Population protocols efficient simulator and compiler
