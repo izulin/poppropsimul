@@ -2,7 +2,7 @@
 package.path = package.path..";C:\\Users\\Bartek\\Desktop\\PRACA\\protocols\\?.lua"
 
 --nazwa protokolu do wykonania
-local protocol = "lider"
+local protocol = "majority"
 
 Queue = {}
 function push (q, val)
@@ -32,7 +32,10 @@ function exists(tab, x)
   return false
 end
 
+--will work, if we run from command line, not IDE
 local data = require ("protocols."..protocol)
+--will work if, we run from IDE (together with the change to package.path above)
+--local data = require ("protocols."..protocol)
 
 function to_atoms()
   local states = data.states
