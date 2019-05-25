@@ -1,13 +1,21 @@
---zamiast C:\\Users\\Bartek\\Desktop\\PRACA\\ nalezy wstawic sciezke do folderu z praca.lua
-package.path = package.path..";C:\\Users\\Bartek\\Desktop\\PRACA\\protocols\\?.lua"
+--instead of C:\\Users\\Bartek\\Desktop\\PRACA\\ insert path to praca.lua
+--package.path = package.path..";C:\\Users\\Bartek\\Desktop\\PRACA\\protocols\\?.lua"
 
---nazwa protokolu do wykonania
-local protocol = arg[1]
-
-if protocol == nil then
-  protocol = "protocols.lider"
-else
+--name of protocol to compile
+local protocol
+print(arg[1])
+print(arg[2])
+if arg[1] == "-i" then
+  print("if")
+  protocol = arg[2]
   protocol = string.gsub(protocol, "[/\\]", ".")
+else
+  print("else")
+  local file = io.open("default.lua", "w")
+  file:write(arg[1])
+  file:write("; return {states = states, foo = foo}")
+  file:close()
+  protocol = "default"  
 end
 
 Queue = {}
@@ -74,13 +82,13 @@ function to_atoms()
       end
     end
   end
-  --czesc wypisujaca wyjscie w ladny sposob
+  --printing output nicely
   print(protocol)
   print("printing output")
   for q, w in pairs(out) do
     print(w[1][1], w[1][2], "->", w[2][1], w[2][2])
   end
-  --zwracamy tabele o danych w formacie: {pair, pair}
+  --returning output as table of {pair, pair} elements
   return out
 end
 
