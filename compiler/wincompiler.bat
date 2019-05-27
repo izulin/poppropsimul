@@ -1,1 +1,1 @@
-lua compiler.lua %1 %2
+lua compiler.lua %*
