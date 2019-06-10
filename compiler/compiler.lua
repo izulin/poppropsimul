@@ -3,14 +3,10 @@
 
 --name of protocol to compile
 local protocol
-print(arg[1])
-print(arg[2])
 if arg[1] == "-i" then
-  print("if")
   protocol = arg[2]
   protocol = string.gsub(protocol, "[/\\]", ".")
 else
-  print("else")
   local file = io.open("default.lua", "w")
   file:write(arg[1])
   file:write("; return {states = states, foo = foo}")
