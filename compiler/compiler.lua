@@ -93,6 +93,3 @@ function to_atoms()
 end
 
 to_atoms()
-
-
-
