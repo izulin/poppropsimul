@@ -61,7 +61,7 @@ function to_atoms()
     end
   end
   --main loop
-  local max_number_of_states = 1e+16
+  local max_number_of_states = 1000000
   while not to_check:empty() and #states < max_number_of_states do
     local otmp = to_check[to_check.first]
     local qwe = to_check:pop()

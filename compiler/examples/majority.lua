@@ -1,5 +1,4 @@
 local states = {'r', 'g', 'b'}
-local var = {}
 function foo(q, w)
   if q=='g' and w=='r' then return {'b', 'b'} end
   if (q=='b' or q=='r') and w=='r' then return {'r', 'r'} end
@@ -14,6 +13,3 @@ function foo(q, w)
   if (q=='g' or q=='r') and w=='b' then return {'b', 'b'} end
   return {w, q}
 end
-data.states=states
-data.foo=foo
-return {states = states, foo = foo}
